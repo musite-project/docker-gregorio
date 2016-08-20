@@ -1,9 +1,9 @@
-FROM debian:stable
+FROM debian:unstable
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Mises à jour
-RUN echo deb http://httpredir.debian.org/debian unstable main >> /etc/apt/sources.list; \
+RUN echo deb http://httpredir.debian.org/debian stable main >> /etc/apt/sources.list; \
 	apt-get -y update ; apt-get -y dist-upgrade ; apt-get -y autoremove --purge
 
 # Gestion de l'utf8
@@ -19,6 +19,6 @@ RUN apt-get -y --force-yes install --no-install-recommends \
 	texlive-lang-european texlive-lang-french \
 	texlive-humanities texlive-extra-utils latex-xcolor \
 	texlive-fonts-extra fonts-linuxlibertine lmodern \
-	lilypond \
+	texlive-music lilypond \
 	pandoc
 
