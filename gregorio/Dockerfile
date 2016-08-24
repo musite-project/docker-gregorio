@@ -22,3 +22,8 @@ RUN apt-get -y --force-yes install --no-install-recommends \
 	texlive-music lilypond \
 	pandoc
 
+# Contournement temporaire d'un bug de luatex dans la version présente dans les dépôts
+ADD luatex /usr/bin/
+
+RUN fmtutil-sys --byfmt=luatex ; fmtutil-sys --byfmt=lualatex \
+	fmtutil --byfmt=luatex ; fmtutil --byfmt=lualatex
