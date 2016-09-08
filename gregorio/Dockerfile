@@ -19,6 +19,7 @@ RUN apt-get -y --force-yes install --no-install-recommends \
 	texlive-lang-european texlive-lang-french \
 	texlive-humanities texlive-extra-utils latex-xcolor \
 	texlive-fonts-extra fonts-linuxlibertine lmodern \
+	texlive-metapost \
 	texlive-music lilypond \
 	pandoc
 
