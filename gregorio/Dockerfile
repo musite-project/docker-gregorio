@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN echo deb http://httpredir.debian.org/debian stable main >> /etc/apt/sources.list; \
     apt-get -y update ; apt-get -y dist-upgrade ; apt-get -y install gnupg2 ; apt-get -y autoremove --purge; \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 742A4E8A1A1AB4339632CEB3E12CFAE2FE42299E; \
+    echo deb http://ppa.launchpad.net/gregorio-project/gregorio/ubuntu xenial main >> /etc/apt/sources.list; \
     apt-get -y update
 
 # Gestion de l'utf8
