@@ -27,7 +27,9 @@ RUN apt-get -y --force-yes install --no-install-recommends \
 	pandoc
 
 # Contournement temporaire d'un bug de luatex dans la version présente dans les dépôts
-ADD luatex /usr/bin/
+# et d'un bug dû au mélange de gregorio intégré à TexLive avec la dernière version.
+ADD luatex /usr/bin/ ; rm -rf /usr/share/texlive/texmf-dist/tex/lualatex/gregoriotex
 
-RUN fmtutil-sys --byfmt=luatex ; fmtutil-sys --byfmt=lualatex \
-	fmtutil --byfmt=luatex ; fmtutil --byfmt=lualatex
+RUN fmtutil-sys --byfmt=luatex ; fmtutil-sys --byfmt=lualatex ; \
+	fmtutil --byfmt=luatex ; fmtutil --byfmt=lualatex ; \
+	mktexlsr
