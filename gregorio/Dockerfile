@@ -22,8 +22,8 @@ ENV LC_ALL C.UTF-8
 RUN apt-get -y --force-yes install --no-install-recommends lilypond
 
 RUN apt-get -y --force-yes install --no-install-recommends -t experimental \
-	texlive texlive-latex-extra texlive-xetex texlive-luatex \
+	texlive texlive-latex-recommended texlive-latex-extra texlive-xetex texlive-luatex \
 	texlive-lang-european texlive-lang-french \
-	texlive-humanities texlive-extra-utils latex-xcolor \
+	texlive-humanities texlive-extra-utils \
 	texlive-fonts-extra fonts-linuxlibertine lmodern texlive-metapost \
 	texlive-music gregorio gregoriotex pandoc
