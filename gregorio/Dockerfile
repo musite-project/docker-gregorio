@@ -17,12 +17,13 @@ ENV LC_ALL C.UTF-8
 
 
 # Installation des programmes requis
-RUN apt-get -y --force-yes install --no-install-recommends -t experimental \
+RUN apt-get -y --force-yes install --no-install-recommends \
 	texlive texlive-latex-recommended texlive-latex-extra texlive-xetex texlive-luatex \
 	texlive-lang-european texlive-lang-french \
 	texlive-humanities texlive-extra-utils \
 	texlive-fonts-extra fonts-linuxlibertine lmodern texlive-metapost \
-	texlive-music gregorio gregoriotex pandoc lilypond
+	texlive-music gregorio gregoriotex pandoc && \
+    apt -y --force-yes install --no-install-recommends lilypond
 
 ADD https://raw.githubusercontent.com/jperon/lyluatex/master/lyluatex-options.lua \
     https://raw.githubusercontent.com/jperon/lyluatex/master/lyluatex.lua \
